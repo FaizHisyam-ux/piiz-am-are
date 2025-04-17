@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #111;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      background-color: #f8fffe;
+      color: #111;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 2;
+    }
+
+    button:hover {
+      background-color: #00ccaa;
+    }
+
+    .image-container {
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      text-align: center;
+    }
+
+    .image-container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .image-container img {
+      width: 250px;
+      height: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px #e4e7e6);
+    }
+
+    .caption {
+      font-size: 1.3rem;
+      color: #eee;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .caption.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="showImage()">pencet trus merem qlll</button>
+
+  <div class="image-container" id="tanganContainer">
+    <!-- Ganti dengan URL gambar yang valid -->
+    <img src="https://i2.wp.com/ae01.alicdn.com/kf/HTB1Yg2VGAOWBuNjSsppq6xPgpXaz.jpg" />
+    <div class="caption" id="caption">Nih buat kamu T_T</div>
+  </div>
+
+  <!-- Sound effect -->
+  <audio id="sfx">
+    <source src="https://www.myinstants.com/media/sounds/vine-boom.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showImage() {
+      const container = document.getElementById("tanganContainer");
+      const caption = document.getElementById("caption");
+      const sound = document.getElementById("sfx");
+
+      container.classList.add("show");
+      caption.classList.add("show");
+      sound.play();
+    }
+  </script>
+
+</body>
+</html>
